@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 
-void calculate_sum(std::vector<std::vector<int>>& matrix)
+void calculate_sum(const std::vector<std::vector<int>>& matrix)
 {
     int sum = 0;
     //cols
@@ -39,7 +39,7 @@ int main() {
         //Fill temporary row with random numbers
         for(int i=1 ; i<=cols ; i++)
         {
-        temp_row.push_back(rand() % 9 + 1);
+            temp_row.push_back(rand() % 9 + 1);
         }
         Matrix_A.push_back(temp_row);
         temp_row.clear();
