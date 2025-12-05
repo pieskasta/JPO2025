@@ -3,21 +3,22 @@
 #include <iostream>
 #include <vector>
 
-void calculate_sum(std::vector<std::vector<int>>& matrix)
+int calculate_sum(const std::vector<std::vector<int>>& matrix)
 {
     int sum = 0;
     //cols
-    for(int j = 1; j<=matrix[0].size(); j++)
+    for(int j = 0; j<matrix[0].size(); j++)
     {
         //rows
-        for(int i = 1; i<=matrix.size(); i++)
+        for(int i = 0; i<matrix.size(); i++)
         {
-        if(j%2 == 0 || i%2 == 1)
-            sum +=  matrix[i-1][j-1];
+            if(j%2 == 0 || i%2 == 1)\
+            {
+                sum +=  matrix[i][j];
+            }
         }
     }
-    std::cout << "\n";
-    std::cout << "Sum of even columns or odd rows: " << sum;
+    return sum;
 }
 
 int main() {
@@ -30,30 +31,31 @@ int main() {
     unsigned int rows {};
     std::cout << "Enter the number of colums\n";
     std::cin >> cols;
-    std::cout << "Enter the number of colums\n";
+    std::cout << "Enter the number of rows\n";
     std::cin >> rows;
     std::cout << "\n";
     
-    for(int j=1 ; j <= rows ; j++)
+    for(int j=0 ; j < rows ; j++)
     {
         //Fill temporary row with random numbers
-        for(int i=1 ; i<=cols ; i++)
+        for(int i=0 ; i<cols ; i++)
         {
-        temp_row.push_back(rand() % 9 + 1);
+            temp_row.push_back(rand() % 9 + 1);
         }
         Matrix_A.push_back(temp_row);
         temp_row.clear();
     }
     
-    for(int j=1 ; j <= cols ; j++)
+    for(int j=0 ; j <= cols ; j++)
     {
-        for(int i=1 ; i<=rows ; i++)
+        for(int i=0 ; i <= rows ; i++)
         {                     //cols/rows
-        std::cout << Matrix_A[i-1][j-1] << "\t";
+            std::cout << Matrix_A[i][j] << "\t";
         }
         std::cout << "\n";
     }
-    calculate_sum(Matrix_A);
+
+    std::cout << "\n";
+    std::cout << "Sum of even columns or odd rows: " << calculate_sum(Matrix_A);
     return 0;
 }
-

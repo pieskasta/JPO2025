@@ -11,7 +11,6 @@ int main ()
     std::cin >> input;
     for(int i = 0; i<input.size();i++)
     {
-        if(isupper(input[i]))
         input[i] = std::tolower(input[i]);
     }
     std::cout << "Enter a character you want to sort by:";
@@ -24,5 +23,5 @@ int main ()
             charcounter++;
         }
     }
-    std::cout << "There are " << charcounter<< " " << character << "'s in typed sentece.";
+    std::cout << "There are " << charcounter << " " << character << "'s in typed sentece.";
 }
