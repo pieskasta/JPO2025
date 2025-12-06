@@ -21,11 +21,13 @@ public:
     }
 };
 
-Animal chooseAnimal(int number) {
+Animal* chooseAnimal(int number) {
     if (number%2 == 0) {
-        return 0; /* TODO return dynamically created Dog object */
+         Animal *animal = new Dog();
+        return animal; /* TODO return dynamically created Dog object */
     } else {
-        return 0; /* TODO return dynamically created Cat object */
+         Animal *animal = new Cat();
+        return animal; /* TODO return dynamically created Cat object */
     }
 }
 
