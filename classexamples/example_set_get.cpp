@@ -7,13 +7,19 @@ private:
 
 public:
     void setAge(int a) {
+        if(a>0)
+        {
         m_age = a;
+        }
     }
     int getAge() const {
         return m_age;
     }
     void setName(std::string n) {
-        m_name = n;
+        if(n!="")
+        {
+            m_name = n;
+        }
     }
     std::string getName() const {
         return m_name;
